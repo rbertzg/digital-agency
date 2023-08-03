@@ -1,16 +1,19 @@
-// next types
+// types
 import type { Metadata } from 'next'
-
-// react types
 import type { ReactNode } from 'react'
 
-// next fonts
-import { Rubik } from 'next/font/google'
+// components
+import Footer from '@/components/footer/footer'
+import Navbar from '@/components/navbar/navbar'
+import Providers from '@/components/providers/providers'
 
 // utils
 import { cn } from '@/lib/utils'
 
-// global styles
+// fonts
+import { Rubik } from 'next/font/google'
+
+// styles
 import 'styles/globals.css'
 
 const rubik = Rubik({ subsets: ['latin'] })
@@ -23,14 +26,14 @@ export const metadata: Metadata = {
 
 const BackgroundPattern = () => {
   return (
-    <div className="absolute inset-0 -z-10 flex justify-center">
+    <div className="pointer-events-none absolute inset-0 -z-10 flex justify-center">
       {/* small screen size */}
-      <div className="mx-4 basis-full border-x border-x-white/10 lg:hidden" />
+      <div className="mx-4 basis-full border-x border-x-black/10 dark:border-x-white/10 lg:hidden" />
       {/* large screen size */}
       <div className="mx-4 hidden max-w-[1280px] basis-full grid-cols-3 gap-4 lg:grid">
-        <div className="border-x border-x-white/10" />
-        <div className="border-x border-x-white/10" />
-        <div className="border-x border-x-white/10" />
+        <div className="border-x border-x-black/10 dark:border-x-white/10" />
+        <div className="border-x border-x-black/10 dark:border-x-white/10" />
+        <div className="border-x border-x-black/10 dark:border-x-white/10" />
       </div>
     </div>
   )
@@ -38,15 +41,22 @@ const BackgroundPattern = () => {
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      suppressHydrationWarning
+    >
       <body
         className={cn(
           rubik.className,
-          'bg-slate-900 text-slate-100 antialiased'
+          'flex min-h-screen flex-col justify-between antialiased'
         )}
       >
-        <BackgroundPattern />
-        {children}
+        <Providers>
+          <BackgroundPattern />
+          <Navbar />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   )
