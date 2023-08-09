@@ -13,6 +13,7 @@ const About = () => {
             src="/img/about.jpg"
             alt=""
             fill
+            priority
             aria-hidden="true"
             className="-z-10 object-cover grayscale"
           />
