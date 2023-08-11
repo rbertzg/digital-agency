@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 
 const BackgroundPattern = () => {
   return (
-    <div className="pointer-events-none absolute inset-0 -z-10 flex justify-center">
+    <div className="pointer-events-none fixed inset-0 -z-10 flex justify-center">
       {/* small screen size */}
       <div className="mx-4 basis-full border-x border-x-black/10 dark:border-x-white/10 lg:hidden" />
       {/* large screen size */}
