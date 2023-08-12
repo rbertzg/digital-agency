@@ -7,8 +7,10 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
+import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import Logo from '../logo/logo'
+import ThemeToggle from '../theme-toggle/theme-toggle'
 
 const links: { id: number; title: string; href: string }[] = [
   { id: 1, title: 'Home', href: '/' },
@@ -27,6 +29,9 @@ const Navbar = () => {
       </Link>
       <NavigationMenu>
         <NavigationMenuList>
+          <NavigationMenuItem>
+            <ThemeToggle />
+          </NavigationMenuItem>
           {links.map(({ id, title, href }) => (
             <NavigationMenuItem key={id}>
               <Link
@@ -34,7 +39,12 @@ const Navbar = () => {
                 legacyBehavior
                 passHref
               >
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <NavigationMenuLink
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    'dark:bg-transparent'
+                  )}
+                >
                   {title}
                 </NavigationMenuLink>
               </Link>
