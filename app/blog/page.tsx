@@ -1,6 +1,7 @@
 import ContainerWithHorizontalBorders from '@/components/container-with-horizontal-borders/container-with-horizontal-borders'
 import { H1, Paragraph } from '@/components/typography/typography'
 import { PostType } from '@/models/Post'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -15,6 +16,10 @@ const getPosts = async (): Promise<PostType[]> => {
 
   const data = await res.json()
   return data.posts as PostType[]
+}
+
+export const metadata: Metadata = {
+  title: 'Digital Agency | Blog',
 }
 
 const Blog = async () => {

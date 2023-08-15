@@ -1,10 +1,22 @@
 import { H3, Paragraph } from '@/components/typography/typography'
 import { Button } from '@/components/ui/button'
+import { Metadata } from 'next'
 import Image from 'next/image'
 
 type PortfolioCategoryProps = {
   params: {
     category: string
+  }
+}
+
+export const generateMetadata = async ({
+  params,
+}: PortfolioCategoryProps): Promise<Metadata> => {
+  const category = params.category
+  const capitalizedCategory = category[0].toUpperCase() + category.slice(1)
+
+  return {
+    title: `Digital Agency | ${capitalizedCategory}`,
   }
 }
 

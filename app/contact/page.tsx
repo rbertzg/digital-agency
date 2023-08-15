@@ -2,6 +2,11 @@ import ContainerWithHorizontalBorders from '@/components/container-with-horizont
 import { H1 } from '@/components/typography/typography'
 import Image from 'next/image'
 import ContactForm from './_components/contact-form'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Digital Agency | Contact',
+}
 
 const Contact = () => {
   return (

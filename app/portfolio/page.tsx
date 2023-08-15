@@ -1,5 +1,10 @@
 import { H1 } from '@/components/typography/typography'
+import { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Digital Agency | Portfolio',
+}
 
 const Portfolio = () => {
   return (

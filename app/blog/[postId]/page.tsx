@@ -1,6 +1,7 @@
 import { H1, Paragraph } from '@/components/typography/typography'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { PostType } from '@/models/Post'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
@@ -20,6 +21,18 @@ const getPost = async (postId: number): Promise<PostType> => {
 type BlogPostProps = {
   params: {
     postId: number
+  }
+}
+
+export const generateMetadata = async ({
+  params,
+}: BlogPostProps): Promise<Metadata> => {
+  const post = await getPost(params.postId)
+  const postTitle = post.title
+  const capitalizedPostTitle = postTitle[0].toUpperCase() + postTitle.slice(1)
+
+  return {
+    title: `Digital Agency | ${capitalizedPostTitle}`,
   }
 }
 

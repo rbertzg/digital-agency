@@ -1,8 +1,13 @@
 import ContainerWithHorizontalBorders from '@/components/container-with-horizontal-borders/container-with-horizontal-borders'
 import { H1, H2, H3, List, Paragraph } from '@/components/typography/typography'
 import { Button } from '@/components/ui/button'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Digital Agency | About Us',
+}
 
 const About = () => {
   return (
