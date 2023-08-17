@@ -4,6 +4,7 @@
 import { ReactNode } from 'react'
 
 // providers
+import { SessionProvider } from 'next-auth/react'
 import { ThemeProvider } from 'next-themes'
 
 const Providers = ({ children }: { children: ReactNode }) => {
@@ -13,7 +14,7 @@ const Providers = ({ children }: { children: ReactNode }) => {
       defaultTheme="dark"
       enableSystem
     >
-      {children}
+      <SessionProvider>{children}</SessionProvider>
     </ThemeProvider>
   )
 }
