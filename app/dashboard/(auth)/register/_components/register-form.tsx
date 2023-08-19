@@ -112,7 +112,12 @@ const RegisterForm = () => {
             </FormItem>
           )}
         />
-        <Button type="submit">Register</Button>
+        <Button
+          type="submit"
+          className="w-full"
+        >
+          Register
+        </Button>
       </form>
     </Form>
   )

@@ -10,7 +10,8 @@ import {
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import Logo from '../logo/logo'
-import ThemeToggle from '../theme-toggle/theme-toggle'
+import SignOut from './sign-out'
+import ThemeToggle from './theme-toggle'
 
 const links: { id: number; title: string; href: string }[] = [
   { id: 1, title: 'Home', href: '/' },
@@ -50,6 +51,9 @@ const Navbar = () => {
               </Link>
             </NavigationMenuItem>
           ))}
+          <NavigationMenuItem>
+            <SignOut />
+          </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
     </header>
